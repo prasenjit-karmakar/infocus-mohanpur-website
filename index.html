@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Infocus</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/infocus.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/jquery.js"></script>
+<script>
+var slideIndex = 0;
+
+$( document ).ready(
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex> slides.length) {slideIndex = 1}
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+});
+$(document).ready(function () {
+    $("#registration_form").on("submit", function(e) {
+        var postData = $(this).serializeArray();
+        var formURL = $(this).attr("action");
+        alert("Thank you for registering. Your reegistration id : 5656476476");
+        // $.ajax({
+        //     url: formURL,
+        //     type: "POST",
+        //     data: postData,
+        //     success: function(data, textStatus, jqXHR) {
+        //         $('#registration_dialog .modal-header .modal-title').html("Result");
+        //         $('#registration_dialog .modal-body').html(data);
+        //         $("#submitForm").remove();
+        //         alert("Thank you for registering. Your reegistration id : 5656476476");
+        //     },
+        //     error: function(jqXHR, status, error) {
+        //         console.log(status + ": " + error);
+        //     }
+        // });
+        e.preventDefault();
+    });
+
+    $("#submitForm").on('click', function() {
+        $("#registration_form").submit();
+    });
+});
+</script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Home</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#rockstars">Rockstars</a>
+                    </li>
+					           <li>
+                        <a href="#schedule">Schedule</a>
+                    </li>
+					           <li>
+                        <a href="#sponsors">Sponsors</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Full Width Image Header -->
+    <header class="header-image">
+        <div class="headline">
+            <div class="container">
+                <h1>Infocus<span style="font-size: 50px;">  presents</span></h1>
+                <h2>Mega Quiz 2017</h2>
+				<h3>3rd September 2017, Mohanpur, Tripura(West)</h3>
+            </div>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#contact_dialog">Register</button>
+
+<!-- the div that represents the modal dialog -->
+<div class="modal fade" id="contact_dialog" role="dialog">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><b>Registration Form</b></h4>
+            </div>
+                <div class="modal-body">
+                    <form id="registration_form" action="http://localhost/api/v0/infocus/megaquiz/register" method="POST">
+                      <div class="row">
+                        <div class="col-md-6">
+                        Name of first candidate <br/>
+                        <input type="text" name="first_name" ><br/>
+                      </div>
+                       <div class="col-md-6">
+                         Name of second candidate<br/>
+                        <input type="text" name="second_name"><br/>
+                       </div>
+                     </div>
+                     <div class="row">
+                       <div class="col-md-6">
+                        Age as on January 1, 2017<br/>
+                       <input type="number" name="first_age"><br/>
+                      </div>
+                        <div class="col-md-6">
+                          Age as on January 1, 2017<br/>
+                         <input type="number" name="second_age"><br/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                           Profession<br/>
+                         <input type="text" name="first_profession"><br/>
+                       </div>
+                         <div class="col-md-6">
+                           Profession <br/>
+                           <input type="text" name="second_profession"><br/>
+                         </div>
+                       </div>
+                       <div class="row">
+                         <div class="col-md-6">
+                              Address <br/>
+                              <input type="textarea" name="first_address"><br/>
+                        </div>
+                          <div class="col-md-6">
+                            Address<br/>
+                           <input type="textarea" name="second_address"><br/>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                               Phone No<br/>
+                               <input type="text" name="first_phone" pattern="[789][0-9]{9}"><br/>
+                         </div>
+                           <div class="col-md-6">
+                             Phone No<br/>
+                             <input type="text" name="second_phone" pattern="[789][0-9]{9}"><br/>
+                           </div>
+                         </div>
+                         <div class="row">
+                           <div class="col-md-6">
+                                Email <br/>
+                               <input type="email" name="first_email"><br/>
+                          </div>
+                            <div class="col-md-6">
+                                Email<br/>
+                               <input type="email" name="second_email"><br/>
+                            </div>
+                          </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                     <span>Offline registration contact:  9856547198/9615390394</span>
+                    <button type="button" class="btn btn-default" style="background-color:red" data-dismiss="modal">Close</button>
+                    <button type="button" id="submitForm" class="btn btn-default" style="background-color:green">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr class="segment-divider">
+
+        <!-- First segment -->
+        <div class="segment" id="about">
+            <h2 class="segment-heading">About us</h2>
+            <p class="lead">We are a bunch of enthusiasts, willing to spend  some time for a social cause. Our honest effort to make this world a better place resulted in a by product called "Infocus"</p>
+        </div>
+
+        <hr class="segment-divider">
+
+        <!-- Second segment -->
+        <div class="segment" id="rockstars">
+            <!-- <img class="segment-image img-circle img-responsive pull-right" src="http://placehold.it/500x500"> -->
+            <h2 class="segment-heading">Rockstars</h2>
+            <p class="lead" style="float:left;width:50%;">Everyone around is a rockstar by true mean, nonetheless glimpses of a few ...</p>
+            <div class="slideshow-container">
+
+                 <div class="mySlides fade">
+                    <img src="images/anjanda.jpg" style="width:100%">
+                    <div class="text">Nilanjan Debnath</div>
+                 </div>
+
+                 <div class="mySlides fade">
+                    <img src="images/nimuda.jpg" style="width:100%">
+                    <div class="text">Nirmalendu Debnath</div>
+                 </div>
+
+                 <div class="mySlides fade">
+                    <img src="images/naru.jpg" style="width:100%">
+                    <div class="text">Narayan Debnath</div>
+                 </div>
+                 <div class="mySlides fade">
+                    <img src="images/keshab.jpg" style="width:100%">
+                    <div class="text">Keshab Debnath</div>
+                 </div>
+                 <br>
+                 <div style="text-align:center">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                </div>
+
+         </div>
+
+        <hr class="segment-divider">
+
+        <div class="segment" id="schedule">
+            <h2 class="segment-heading">Schedule
+                <span class="text-muted">Mega Quiz 2017</span>
+            </h2>
+        </div>
+
+        <hr class="segment-divider">
+
+        <div class="segment" id="sponsors">
+            <h2 class="segment-heading">Sponsors</h2>
+            <br>
+            <div id="sponsors">
+                 <div class= "inline-block">
+                    <img src="images/time.png" >
+                 </div>
+                 <div class= "inline-block">
+                    <img src="images/time.png" >
+                 </div>
+            </div>
+            <br>
+        </div>
+
+        <hr class="segment-divider">
+
+        <!-- Third segment -->
+        <div class="segment" id="contact">
+            <h2 class="segment-heading">Contact us</h2>
+            <p class="lead">Infocus Social Organization, Mohanpur, Airan Chowmohani, Near Sanskritik Bhavan, West Tripura-799211</p>
+        </div>
+
+        <hr class="segment-divider">
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Infocus Social @ 2017</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

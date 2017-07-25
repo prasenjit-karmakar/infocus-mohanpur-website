@@ -1,0 +1,248 @@
+/*
+ * Start Bootstrap - One Page Wonder (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    margin-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.header-image {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: url('../images/background_red.jpg') no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.headline {
+    padding: 120px 0;
+}
+
+.headline h1 {
+    font-size: 130px;
+    font-family: cursive;
+    color: yellowgreen;
+    #background: #fff;
+    #background: rgba(255,255,255,0.9);
+}
+
+.headline h2 {
+    font-size: 77px;
+    color: white;
+    #background: #fff;
+    #background: rgba(255,255,255,0.9);
+}
+
+.segment-divider {
+    margin: 80px 0;
+}
+
+.segment {
+    overflow: hidden;
+}
+
+.segment-image.pull-left {
+    margin-right: 40px;
+}
+
+.segment-image.pull-right {
+    margin-left: 40px;
+}
+
+.segment-heading {
+    font-size: 50px;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+@media(max-width:1200px) {
+    .headline h1 {
+        font-size: 140px;
+    }
+
+    .headline h2 {
+        font-size: 63px;
+    }
+
+    .segment-divider {
+        margin: 50px 0;
+    }
+
+    .segment-image.pull-left {
+        margin-right: 20px;
+    }
+
+    .segment-image.pull-right {
+        margin-left: 20px;
+    }
+
+    .segment-heading {
+        font-size: 35px;
+    }
+}
+
+@media(max-width:991px) {
+    .headline h1 {
+        font-size: 105px;
+    }
+
+    .headline h2 {
+        font-size: 50px;
+    }
+
+    .segment-divider {
+        margin: 40px 0;
+    }
+
+    .segment-image {
+        max-width: 50%;
+    }
+
+    .segment-image.pull-left {
+        margin-right: 10px;
+    }
+
+    .segment-image.pull-right {
+        margin-left: 10px;
+    }
+
+    .segment-heading {
+        font-size: 30px;
+    }
+}
+
+@media(max-width:768px) {
+    .container {
+        margin: 0 15px;
+    }
+
+    .segment-divider {
+        margin: 40px 0;
+    }
+
+    .segment-heading {
+        font-size: 25px;
+    }
+}
+
+@media(max-width:668px) {
+    .headline h1 {
+        font-size: 70px;
+    }
+
+    .headline h2 {
+        font-size: 32px;
+    }
+
+    .segment-divider {
+        margin: 30px 0;
+    }
+}
+
+@media(max-width:640px) {
+    .headline {
+        padding: 75px 0 25px 0;
+    }
+
+    .headline h1 {
+        font-size: 60px;
+    }
+
+    .headline h2 {
+        font-size: 30px;
+    }
+}
+
+@media(max-width:375px) {
+    .segment-divider {
+        margin: 10px 0;
+    }
+
+    .segment-image {
+        max-width: 100%;
+    }
+
+    .segment-image.pull-left {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .segment-image.pull-right {
+        margin-bottom: 10px;
+        margin-left: 0;
+    }
+}
+* {box-sizing:border-box}
+body {font-family: Verdana,sans-serif;}
+.mySlides {display:none}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 400px;
+  position: right;
+  margin: auto;
+  margin-right: 100px;
+}
+
+/* Caption text */
+.text {
+  color: black;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: inherit;
+  bottom: 8px;
+  width: 100%;
+  text-align: inherit;
+  font-family: cursive;
+}
+
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+.inline-block {
+   display: inline-block;
+   padding: 10px;
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
