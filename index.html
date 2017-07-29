@@ -16,67 +16,13 @@
 
     <!-- Custom CSS -->
     <link href="css/infocus.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <script src="js/jquery.js"></script>
-<script>
-var slideIndex = 0;
-
-$( document ).ready(
-function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex> slides.length) {slideIndex = 1}
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 2000); // Change image every 2 seconds
-});
-$(document).ready(function () {
-    $("#registration_form").on("submit", function(e) {
-        var postData = $(this).serializeArray();
-        var formURL = $(this).attr("action");
-        alert("Thank you for registering. Your reegistration id : 5656476476");
-        // $.ajax({
-        //     url: formURL,
-        //     type: "POST",
-        //     data: postData,
-        //     success: function(data, textStatus, jqXHR) {
-        //         $('#registration_dialog .modal-header .modal-title').html("Result");
-        //         $('#registration_dialog .modal-body').html(data);
-        //         $("#submitForm").remove();
-        //         alert("Thank you for registering. Your reegistration id : 5656476476");
-        //     },
-        //     error: function(jqXHR, status, error) {
-        //         console.log(status + ": " + error);
-        //     }
-        // });
-        e.preventDefault();
-    });
-
-    $("#submitForm").on('click', function() {
-        $("#registration_form").submit();
-    });
-});
-</script>
 </head>
 
-<body>
+<body onload="">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: darkslategrey;" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -90,18 +36,18 @@ $(document).ready(function () {
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" style="font-size: medium;">
                     <li>
                         <a href="#about">About</a>
                     </li>
                     <li>
-                        <a href="#rockstars">Rockstars</a>
+                        <a href="#megaquiz17">MegaQuiz-2017</a>
+                    </li>
+                    <li>
+                        <a href="#events">Events</a>
                     </li>
 					           <li>
-                        <a href="#schedule">Schedule</a>
-                    </li>
-					           <li>
-                        <a href="#sponsors">Sponsors</a>
+                        <a href="#gallery">Gallery</a>
                     </li>
                     <li>
                         <a href="#contact">Contact</a>
@@ -117,183 +63,418 @@ $(document).ready(function () {
     <header class="header-image">
         <div class="headline">
             <div class="container">
-                <h1>Infocus<span style="font-size: 50px;">  presents</span></h1>
+                <h1>Infocus<span style="font-size: 50px;color:white;">  presents</span></h1>
                 <h2>Mega Quiz 2017</h2>
-				<h3>3rd September 2017, Mohanpur, Tripura(West)</h3>
-            </div>
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#contact_dialog">Register</button>
+				        <h3 style="color:white;">3rd September 2017, Mohanpur, Tripura(West)</h3>
+           </div><br/>
+            <button type="button" style="font-weight: 600;"class="btn btn-info" data-toggle="modal" data-target="#registration_dialog">Register</button>
+          </div>
+      </header>
 
 <!-- the div that represents the modal dialog -->
-<div class="modal fade" id="contact_dialog" role="dialog">
-    <div class="modal-dialog" >
+<div class="modal fade" id="registration_dialog" role="dialog">
+    <div class="modal-dialog" style="overflow-y: initial !important;">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"><b>Registration Form</b></h4>
+                <h3 class="modal-title"><b>Registration Form</b></h3>
             </div>
-                <div class="modal-body">
+                <div class="modal-body" style="height: 400px;overflow-y: auto;">
                     <form id="registration_form" action="http://localhost/api/v0/infocus/megaquiz/register" method="POST">
                       <div class="row">
                         <div class="col-md-6">
-                        Name of first candidate <br/>
-                        <input type="text" name="first_name" ><br/>
+                        <div class="form-group">
+                        <label for="focusedInput"><b>Name of first candidate </b></label><br/>
+                        <input type="text" class="form-control  required" id="first_name" name="first_name" required>
+                        <!-- <span class="glyphicon glyphicon-remove form-control-feedback"></span><br/> -->
+                      </div>
                       </div>
                        <div class="col-md-6">
-                         Name of second candidate<br/>
-                        <input type="text" name="second_name"><br/>
+                         <div class="form-group">
+                        <label for="focusedInput"><b> Name of second candidate</label></b><br/>
+                        <input type="text" class="form-control required" id="second_name" required>
+                        <!-- <span class="glyphicon glyphicon-remove form-control-feedback"></span><br/> -->
+                      </div>
                        </div>
                      </div>
                      <div class="row">
                        <div class="col-md-6">
-                        Age as on January 1, 2017<br/>
-                       <input type="number" name="first_age"><br/>
-                      </div>
+                         <div class="form-group">
+                          <label for="focusedInput"><b>Age as on January 1, 2017</b></label><br/>
+                          <input type="number" min="1" class="form-control required" id="first_age" required></input>
+                          <!-- <span class="glyphicon glyphicon-remove form-control-feedback"></span><br/> -->
+                        </div>
+                       </div>
                         <div class="col-md-6">
-                          Age as on January 1, 2017<br/>
-                         <input type="number" name="second_age"><br/>
+                          <div class="form-group">
+                             <label for="focusedInput"><b>Age as on January 1, 2017</b></label><br/>
+                             <input type="number" min="1" class="form-control required" id="second_age" required></input>
+                             <!-- <span class="glyphicon glyphicon-remove form-control-feedback"></span><br/> -->
+                          </div>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-md-6">
-                           Profession<br/>
-                         <input type="text" name="first_profession"><br/>
+                       <div class="form-group">
+                        <label for="focusedInput"><b>   Profession</b></label><br/>
+                         <input type="text" class="form-control required" id="first_profession" required>
+                         <!-- <span class="glyphicon glyphicon-remove form-control-feedback"></span><br/> -->
                        </div>
+                     </div>
                          <div class="col-md-6">
-                           Profession <br/>
-                           <input type="text" name="second_profession"><br/>
+                           <div class="form-group">
+                           <label for="focusedInput"><b>Profession</b> </label><br/>
+                           <input type="text" class="form-control required" id="second_profession" required>
+                           <!-- <span class="glyphicon glyphicon-remove form-control-feedback"></span><br/> -->
                          </div>
+                       </div>
                        </div>
                        <div class="row">
                          <div class="col-md-6">
-                              Address <br/>
-                              <input type="textarea" name="first_address"><br/>
+                           <div class="form-group">
+                              <label for="focusedInput"><b>Address</b></label> <br/>
+                              <textarea rows="2" class="form-control required" id="first_address" required></textarea>
+                              <!-- <span class="glyphicon glyphicon-remove form-control-feedback"></span><br/> -->
+                            </div>
                         </div>
                           <div class="col-md-6">
-                            Address<br/>
-                           <input type="textarea" name="second_address"><br/>
+                            <div class="form-group">
+                            <label for="focusedInput"><b>Address</b></label><br/>
+                           <textarea rows="2" class="form-control required" id="second_address" required></textarea>
+                           <!-- <span class="glyphicon glyphicon-remove form-control-feedback"></span><br/> -->
                           </div>
+                        </div>
                         </div>
                         <div class="row">
                           <div class="col-md-6">
-                               Phone No<br/>
-                               <input type="text" name="first_phone" pattern="[789][0-9]{9}"><br/>
+                            <div class="form-group">
+                               <label for="focusedInput"><b>Phone No</b></label><br/>
+                               <input type="text" pattern="[7-9]{1}[0-9]{9}" class="form-control required phoneNumber" id="first_phone" pattern="[789][0-9]{9}" required>
+                               <div id="first_phone_error" style="display:none;color:red;">Please enter a valid phone number</div>
+                               <!-- <span class="glyphicon glyphicon-remove form-control-feedback"></span><br/> -->
+                             </div>
                          </div>
                            <div class="col-md-6">
-                             Phone No<br/>
-                             <input type="text" name="second_phone" pattern="[789][0-9]{9}"><br/>
+                             <div class="form-group">
+                             <label for="focusedInput"><b>Phone No</b></label><br/>
+                             <input type="text" pattern="[7-9]{1}[0-9]{9}" class="form-control required phoneNumber" id="second_phone"  required>
+                             <div id="second_phone_error" style="display:none;color:red;">Please enter a valid phone number</div>
+                             <!-- <span class="glyphicon glyphicon-remove form-control-feedback"></span><br/> -->
                            </div>
+                         </div>
                          </div>
                          <div class="row">
                            <div class="col-md-6">
-                                Email <br/>
-                               <input type="email" name="first_email"><br/>
+                             <div class="form-group">
+                                <label for="focusedInput"><b>Email</b></label> <br/>
+                               <input type="email" class="form-control required emailid" id="first_email" required>
+                               <div id="first_email_error" style="display:none;color:red;">Please enter a valid email</div>
+                               <!-- <span class="glyphicon glyphicon-remove form-control-feedback"></span><br/> -->
                           </div>
+                        </div>
                             <div class="col-md-6">
-                                Email<br/>
-                               <input type="email" name="second_email"><br/>
+                              <div class="form-group">
+                                <label for="focusedInput"><b>Email</b></label><br/>
+                               <input type="email" class="form-control required emailid" id="second_email" required>
+                               <div id="second_email_error" style="display:none;color:red;">Please enter a valid email</div>
+                               <!-- <span class="glyphicon glyphicon-remove form-control-feedback"></span><br/> -->
                             </div>
+
+                          </div>
                           </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                     <span>Offline registration contact:  9856547198/9615390394</span>
-                    <button type="button" class="btn btn-default" style="background-color:red" data-dismiss="modal">Close</button>
+                    <span><b> Offline registration contact:  9856547198/9615390394 </b></span>
+                    <button type="button" class="btn btn-default" style="background-color:red" id="close" data-dismiss="modal">Close</button>
                     <button type="button" id="submitForm" class="btn btn-default" style="background-color:green">Register</button>
                 </div>
             </div>
         </div>
     </div>
+<!-- Success pop up modal -->
+    <div class="modal fade" id="success_modal"  role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><b>Confirmation</b></h4>
+          </div>
+          <div class="modal-body" style="color:green;height:50px;">
+            <p><b>Congartulations !! Your registration id is 67242341444</b></p>
+          </div>
         </div>
-    </header>
+      </div>
+    </div>
+
 
     <!-- Page Content -->
-    <div class="container">
+        <div class="container">
 
         <hr class="segment-divider">
-
-        <!-- First segment -->
         <div class="segment" id="about">
+          <div class="alert alert-info" style="font-size:large;">
             <h2 class="segment-heading">About us</h2>
-            <p class="lead">We are a bunch of enthusiasts, willing to spend  some time for a social cause. Our honest effort to make this world a better place resulted in a by product called "Infocus"</p>
+            <p class="lead">"Infocus" is a social organization formed in 2015, by a group of energetic youths of Mohanpur subdivision from different professional domain. It is approved by NYK. Our primary objective is to inculcate the cultural environment, exercise education through different social developmental activities.</p>
         </div>
+      </div>
 
         <hr class="segment-divider">
+        <div class="segment" id="megaquiz17">
+          <div class="alert alert-info" style="font-size:large;">
+            <h2 class="segment-heading">Mega Quiz 2017</h2>
+            <br>
+            <h3> PREFACE </h3>
+            <br>
+            <p class="lead"> Infocus - a social organization,  a Mohanpur based social organization  has been organizing a mega quiz competition  for last  two consecutive years.
+Job aspirants, quiz lovers, students of schools, colleges, universities,  from entire sub-division and areas adjacent to it take part in this quiz competition with huge enthusiasm. The event become huge popular and turned into a festival of knowledge in our area.
+Now 3rd edition of this quiz competition will be organized on 3rd September, 2017 (Sunday) at Sanskritik Bhawan, Mohanpur.</p>
+            <br>
+            <h3> GENERAL INFORMATION </h3>
+            <br>
+            <p class="lead">
+            <ul class="list-class">
+              <li>Infocus - a social organization,  a Mohanpur based social organization  has been organizing a mega quiz competition  for last  two consecutive years.</li>
+              <li>2(two) persons are required to form each team.</li>
+              <li>There is no age limitation of the participants.</li>
+              <li>Participating team must pay Rs. 30 as Registration Fee at the time of registration.</li>
+              <li>Registration starts from 1st August 2017, & it will be closed on 30th August, 2017</li>
+              <li>A registration number will be issued to each registered team.</li>
+              <li>Participating teams shall have to bring a BLACK BALL POINT PEN and the registration token only inside the exam hall during the screening test. </li>
+              <li>All the teams have to go through a screening test. Screening test will be held on 3rd Sep, 2017 at 10:00am at Sansktritik Bhawan, Airan Chowmohani, Mohanpur.</li>
+              <li>Participating teams shall have to report at 9:00am for appearing in the screening test at Sansktritik Bhawan, Airan Chowmohani, Mohanpur.</li>
+              <li>Infocus Mega quiz-2017 will be inaugurated at 11:00 am on the said date, in presence of eminent personalities of Tripura. </li>
+              <li>Main Quiz Competition will be started from 12O’clock.</li>
+              <li>Light refreshment will be provided to each participating team.</li>
+              <li>Use of Mobile phone or any electronic gadgets are not allowed inside the hall room.</li>
+              <li>Infocus will not be liable for the belongings of participants/audience during the entire quiz program.  </li>
+              <li>Questions in the quiz competitions will be asked from the following topics:
+              Tripura, Disaster Management & Environment, Indian Polity, Indian History, Indian Geography, Science & technology, Sports, Cinema, Mythology, Computer, Current affairs, Contemporary World History, Music, Information Technology, Digital India etc.</li>
+            </ul>
+          </p>
+          <br>
+          <h3>RULES AND REGULATION OF QUIZ CONTEST</h3>
+          <br>
+          <h4>SCREENING TEST</h4>
+          <br>
+          <p class="lead">
+          <ul class="list-class">
+            <li>All the teams have to go through a screening test.</li>
+            <li>The screening test will consist of 20 MCQs, each carrying 1 mark.</li>
+            <li>Each questions shall have 4(four) alternatives.</li>
+            <li>Questions must be answered on the Question Sheet by putting a tick mark in the appropriate option like A, B, C, D.</li>
+            <li>There will be NEGATIVE marking for any wrong answer. For each wrong answer 0.5 Mark will be deducted. </li>
+            <li>Each of the participating team will write their registration number at the specified space on the sheet.</li>
+            <li>Total time allotted for answering is 10 minute.</li>
+            <li>The questions for this test will be asked from Current affairs & General Knowledge.</li>
+            <li>In the case of TIE while selecting twelve teams for preliminary round, another special screening test will be conducted among the teams having equal score.</li>
+            <li>No one should be allowed to go outside of room during screening test.</li>
+          </ul>
+        </p>
+        <br>
+        <h4>PRELIMINARY SEGMENT</h4>
+        <br>
+        <p class="lead">
+        <ul class="list-class">
+          <li>On the basis of Screening Test result, best twelve teams will be selected for the preliminary segment.</li>
+          <li>There will be two sessions for the preliminary segment. Out of twelve selected teams, randomly selected six teams will be allowed to participate in each session.</li>
+          <li>Based on the score of preliminary round best six teams will be selected for final segment.</li>
+          <li>There will be three rounds in each session of preliminary segment.</li>
+          <li>On all the controversial issues/ in case of TIE (if any) and in regard to correctness or authenticity of answers provided, decision of the quiz master shall be final.</li>
+        </ul>
+      </p>
+      <br>
 
-        <!-- Second segment -->
-        <div class="segment" id="rockstars">
-            <!-- <img class="segment-image img-circle img-responsive pull-right" src="http://placehold.it/500x500"> -->
-            <h2 class="segment-heading">Rockstars</h2>
-            <p class="lead" style="float:left;width:50%;">Everyone around is a rockstar by true mean, nonetheless glimpses of a few ...</p>
+      <h4>FINAL SEGMENT</h4>
+      <br>
+      <p class="lead">
+      <ul class="list-class">
+        <li> In the final segment there will be six rounds.</li>
+      </ul>
+    </p>
+    <br>
+
+    <h4>AUDIENCE SEGMENT</h4>
+    <br>
+    <p class="lead">
+    <ul class="list-class">
+      <li> Unanswered questions shall be asked to the audience. In addition there will be different segments on various issues, topics, events etc. for the audience.  The sponsors may be involved in the audience round.  </li>
+    </ul>
+  </p>
+  <br>
+
+  <h4>PRIZE</h4>
+  <br>
+  <p class="lead">
+  <ul class="list-class">
+    <li> Best three teams will be awarded with First, Second and Third prize respectively and rest nine teams selected in the preliminary round shall be awarded with special prizes. </li>
+    <li> There will be attractive prizes for the audience who come with the correct answer in the audience round.</li>
+  </ul>
+</p>
+<br>
+<div class="alert alert-warning" style="font-size:large;">
+   <strong>Note!</strong> Infocus -A Social Organization preserves all the rights to change/modify the rules and regulations stated above and may take any decision under special circumstances.
+ </div>
+        </div>
+      </div>
+
+        <hr class="segment-divider">
+        <div class="segment" id="events">
+          <div class="alert alert-info" style="font-size:large;">
+            <h2 class="segment-heading">Events</h2>
+            <br>
+            <ul class="list-class">
+              <li>
+                Mohanpur Sub-Divisional Infocus Mega Quiz-2015 was held on 6th Sep, 2015 at Sanskritik Bhawan, Mohanpur.
+              </li>
+              <br/>
+              <li>
+                Sharad Arghya, a multi dimensional cultural event was held in the auspicious day of Mahalaya.
+              </li>
+              <br/>
+              <li>
+                Youth Parliament, a day long programme of discussion on various social issues was held on 31st Jan, 2016.
+              </li>
+              <br/>
+              <li>
+                  An awareness programme on  Disaster Management  was organized at Fatickcherra High School, Fatickcherra, Mohanpur, in collaboration with SDM Administration, Mohanpur on 23rd Feb, 2016.
+              </li>
+              <br/>
+              <li>
+                  An Interactive seminar on Job Opportunities & Small Business Ideas was held on 3rd April, 2016 in collaboration with TIME, Agartala Centre
+              </li>
+              <br/>
+              <li>
+                    2nd Mohanpur Sub-Divisional Infocus Mega Quiz-2016 was held on 4th Sep, 2016 at Sanskritik Bhawan, Mohanpur.
+              </li>
+              <br/>
+              <li>
+                      Sharad Arghya, a multi dimentional cultural event was held on 30th Sep, 2016 for second time in the auspicious day of Mahalaya.
+              </li>
+              <br/>
+              <li>
+                        A candle march rally has been organised in memory of late jawan Sambhu Satmura & Chitta Ranjan Debbarma.
+              </li>
+              <br/>
+              <li>
+                        An exhibition stall was set up in the 1st Mohanpur Book Fair to showcase incredible Mohanpur(3rd-6th Jan, 2017).
+              </li>
+              <br/>
+              <li>
+                        An exhibition stall was set up in the 1st Mohanpur Book Fair to showcase incredible Mohanpur(3rd-6th Jan, 2017)
+              </li>
+            </ul>
+            <br>
+        </div>
+      </div>
+
+        <hr class="segment-divider">
+        <div class="segment" id="gallery">
+          <div class="alert alert-info" style="font-size:large;">
+            <h2 class="segment-heading">Gallery</h2>
+          </div>
             <div class="slideshow-container">
 
-                 <div class="mySlides fade">
-                    <img src="images/anjanda.jpg" style="width:100%">
-                    <div class="text">Nilanjan Debnath</div>
+                 <div class="mySlides">
+                    <img src="images/pic1.jpg" style="width:100%">
                  </div>
 
-                 <div class="mySlides fade">
-                    <img src="images/nimuda.jpg" style="width:100%">
-                    <div class="text">Nirmalendu Debnath</div>
+                 <div class="mySlides">
+                    <img src="images/pic2.jpg" style="width:100%">
                  </div>
 
-                 <div class="mySlides fade">
-                    <img src="images/naru.jpg" style="width:100%">
-                    <div class="text">Narayan Debnath</div>
+                 <div class="mySlides">
+                    <img src="images/pic3.jpg" style="width:100%">
                  </div>
-                 <div class="mySlides fade">
-                    <img src="images/keshab.jpg" style="width:100%">
-                    <div class="text">Keshab Debnath</div>
+                 <div class="mySlides">
+                    <img src="images/pic4.jpg" style="width:100%">
                  </div>
-                 <br>
+                 <div class="mySlides">
+                    <img src="images/pic5.jpg" style="width:100%">
+                 </div>
+                 <div class="mySlides">
+                    <img src="images/pic6.jpg" style="width:100%">
+                 </div>
+                 <div class="mySlides">
+                    <img src="images/pic7.jpg" style="width:100%">
+                 </div>
+                 <div class="mySlides">
+                    <img src="images/pic8.jpg" style="width:100%">
+                 </div>
+                 <div class="mySlides">
+                    <img src="images/pic9.jpg" style="width:100%">
+                 </div>
+                 <div class="mySlides">
+                    <img src="images/pic10.jpg" style="width:100%">
+                 </div>
+                 <div class="mySlides">
+                    <img src="images/pic11.jpg" style="width:100%">
+                 </div>
+                 <div class="mySlides">
+                    <img src="images/pic12.jpg" style="width:100%">
+                 </div>
+                 <div class="mySlides">
+                    <img src="images/pic13.jpg" style="width:100%">
+                 </div>
+                 <div class="mySlides">
+                    <img src="images/pic14.jpg" style="width:100%">
+                 </div>
+                 <div class="mySlides">
+                    <img src="images/pic15.jpg" style="width:100%">
+                 </div>
+                 <div class="mySlides">
+                    <img src="images/pic16.jpg" style="width:100%">
+                 </div>
+                 <div class="mySlides">
+                    <img src="images/pic17.jpg" style="width:100%">
+                 </div>
+                 <div class="mySlides">
+                    <img src="images/pic18.jpg" style="width:100%">
+                 </div>
+
+                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
                  <div style="text-align:center">
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                  <span class="dot"></span>
-                </div>
-                </div>
+                      <span class="dot" onclick="currentSlide(1)"></span>
+                      <span class="dot" onclick="currentSlide(2)"></span>
+                      <span class="dot" onclick="currentSlide(3)"></span>
+                      <span class="dot" onclick="currentSlide(4)"></span>
+                      <span class="dot" onclick="currentSlide(5)"></span>
+                      <span class="dot" onclick="currentSlide(6)"></span>
+                      <span class="dot" onclick="currentSlide(7)"></span>
+                      <span class="dot" onclick="currentSlide(8)"></span>
+                      <span class="dot" onclick="currentSlide(9)"></span>
+                      <span class="dot" onclick="currentSlide(10)"></span>
+                      <span class="dot" onclick="currentSlide(11)"></span>
+                      <span class="dot" onclick="currentSlide(12)"></span>
+                      <span class="dot" onclick="currentSlide(13)"></span>
+                      <span class="dot" onclick="currentSlide(14)"></span>
+                      <span class="dot" onclick="currentSlide(15)"></span>
+                      <span class="dot" onclick="currentSlide(16)"></span>
+                      <span class="dot" onclick="currentSlide(17)"></span>
+                      <span class="dot" onclick="currentSlide(18)"></span>
+                 </div>
+               </div>
+                 <br>
 
          </div>
 
         <hr class="segment-divider">
-
-        <div class="segment" id="schedule">
-            <h2 class="segment-heading">Schedule
-                <span class="text-muted">Mega Quiz 2017</span>
-            </h2>
-        </div>
-
-        <hr class="segment-divider">
-
-        <div class="segment" id="sponsors">
-            <h2 class="segment-heading">Sponsors</h2>
-            <br>
-            <div id="sponsors">
-                 <div class= "inline-block">
-                    <img src="images/time.png" >
-                 </div>
-                 <div class= "inline-block">
-                    <img src="images/time.png" >
-                 </div>
-            </div>
-            <br>
-        </div>
-
-        <hr class="segment-divider">
-
-        <!-- Third segment -->
         <div class="segment" id="contact">
+          <div class="alert alert-info" style="font-size:large;">
             <h2 class="segment-heading">Contact us</h2>
-            <p class="lead">Infocus Social Organization, Mohanpur, Airan Chowmohani, Near Sanskritik Bhavan, West Tripura-799211</p>
+            <p>
+            Infocus Social Organization, Mohanpur, Airan Chowmohani, Near Sanskritik Bhavan, West Tripura-799211
+          </p>
+          </div>
+          <div>
         </div>
 
         <hr class="segment-divider">
-
-        <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Infocus Social @ 2017</p>
+                    <p><b>Copyright &copy; Infocus Social @ 2017</b></p>
                 </div>
             </div>
         </footer>
@@ -304,6 +485,151 @@ $(document).ready(function () {
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+
+    // function showSlides() {
+    //     var i;
+    //     var slides = document.getElementsByClassName("mySlides");
+    //     var dots = document.getElementsByClassName("dot");
+    //     for (i = 0; i < slides.length; i++) {
+    //        slides[i].style.display = "none";
+    //     }
+    //     slideIndex++;
+    //     if (slideIndex> slides.length) {slideIndex = 1}
+    //     for (i = 0; i < dots.length; i++) {
+    //         dots[i].className = dots[i].className.replace(" active", "");
+    //     }
+    //     slides[slideIndex-1].style.display = "block";
+    //     dots[slideIndex-1].className += " active";
+    //     setTimeout(showSlides, 2000); // Change image every 2 seconds
+     //}
+
+    $(document).ready(function () {
+        $("#registration_form").on("submit", function(e) {
+      //.....................input validation
+      var valid = 'true';
+      $("#registration_form").find(':input').each(function () {
+        if($(this).context.id.search("email")!=-1)
+        {
+        var emil=$(this).val();
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        if( !emailReg.test( emil ) ) {
+          valid = 'false';
+        }
+      }
+        if(!$(this).val())
+        {
+          $(this).closest('.form-group').removeClass('has-success').addClass('has-error').addClass('has-feedback');
+          valid = 'false';
+        }
+      });
+      if(valid == 'false')
+      {
+        return false;
+      }
+      // Ajax call to registration api
+            var postData = $(this).serializeArray();
+            var formURL = $(this).attr("action");
+            $('#success_modal').modal({'show' : true});
+            //alert("Thank you for registering. Your registration id : 5656476476");
+             $('#close').click();
+            // $.ajax({
+            //     url: formURL,
+            //     type: "POST",
+            //     data: postData,
+            //     success: function(data, textStatus, jqXHR) {
+            //         $('#registration_dialog .modal-header .modal-title').html("Result");
+            //         $('#registration_dialog .modal-body').html(data);
+            //         $("#submitForm").remove();
+            //         alert("Thank you for registering. Your reegistration id : 5656476476");
+            //     },
+            //     error: function(jqXHR, status, error) {
+            //         console.log(status + ": " + error);
+            //     }
+            // });
+            e.preventDefault();
+        });
+        $('.modal').on('hidden.bs.modal', function (e) {
+        $("#registration_form")[0].reset();
+        $("#registration_form").find(':input').each(function () {
+        $(this).closest('.form-group').removeClass('has-error').removeClass('has-feedback');
+        $("#first_email_error").css('display','none');
+        $("#second_email_error").css('display','none');
+        $("#first_phone_error").css('display','none');
+        $("#second_phone_error").css('display','none');
+    });
+
+   });
+
+        $("#submitForm").on('click', function() {
+            $("#registration_form").submit();
+        });
+
+        $('.phoneNumber').keypress(function (ev) {
+          var keyCode = window.event ? ev.keyCode : ev.which;
+         if (keyCode < 48 || keyCode > 57) {
+             if (keyCode != 0 && keyCode != 8 && keyCode != 13 && !ev.ctrlKey) {
+                 ev.preventDefault();
+             }
+         }
+});
+
+$('.emailid').focusout(function(){
+          var emil=$(this).val();
+          var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+          if( !emailReg.test( emil ) ) {
+            var errDiv = "#"+$(this).context.id + "_error";
+              $(errDiv).css('display','block')
+                return;
+            }
+  });
+  $('.emailid').click(function(){
+            var errDiv = "#"+$(this).context.id + "_error";
+            $(errDiv).css('display','none')
+
+    });
+  $('.phoneNumber').focusout(function(){
+            var phn=$(this).val();
+            var phnReg =  /^[0]?[789]\d{9}$/;;
+            if( !phnReg.test( phn ) ) {
+              var errDiv = "#"+$(this).context.id + "_error";
+                $(errDiv).css('display','block')
+                  return;
+              }
+    });
+    $('.phoneNumber').click(function(){
+                var errDiv = "#"+$(this).context.id + "_error";
+                  $(errDiv).css('display','none')
+      });
+
+    });
+    </script>
 
 </body>
 

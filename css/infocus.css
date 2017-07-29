@@ -5,7 +5,45 @@
  */
 
 body {
-    margin-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    margin-top: 50px;
+    font-family: "Proxima Nova", sans-serif ;/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-right: 0 !important ;
+}
+
+.list-class {
+color: green;
+font-size: large;
+list-style-type: circle;
+}
+
+.error_message{
+    display: none;
+    color: red;
+    font-size: small;
+}
+
+/*
+Overriding bootstrap modal to introduce scroll bar
+*/
+/*.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    height: 400px;
+    overflow-y: auto;
+}*/
+.has-error .form-control
+{
+  border-color: red;
+}
+.phoneNumber
+{
+
+}
+
+.emailid
+{
+
 }
 
 .header-image {
@@ -39,7 +77,7 @@ body {
 }
 
 .segment-divider {
-    margin: 80px 0;
+    margin: 20px 0;
 }
 
 .segment {
@@ -180,32 +218,56 @@ footer {
     }
 }
 * {box-sizing:border-box}
-body {font-family: Verdana,sans-serif;}
-.mySlides {display:none}
+.mySlides {display:none;}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 400px;
-  position: right;
+  max-width: 1000px;
+  position: relative;
   margin: auto;
-  margin-right: 100px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
 }
 
 /* Caption text */
 .text {
-  color: black;
+  color: #f2f2f2;
   font-size: 15px;
   padding: 8px 12px;
-  position: inherit;
+  position: absolute;
   bottom: 8px;
   width: 100%;
-  text-align: inherit;
-  font-family: cursive;
+  text-align: center;
 }
 
 
 /* The dots/bullets/indicators */
 .dot {
+  cursor:pointer;
   height: 13px;
   width: 13px;
   margin: 0 2px;
@@ -215,7 +277,7 @@ body {font-family: Verdana,sans-serif;}
   transition: background-color 0.6s ease;
 }
 
-.active {
+.active, .dot:hover {
   background-color: #717171;
 }
 
@@ -225,7 +287,6 @@ body {font-family: Verdana,sans-serif;}
   -webkit-animation-duration: 1.5s;
   animation-name: fade;
   animation-duration: 1.5s;
-
 }
 
 @-webkit-keyframes fade {
@@ -237,12 +298,8 @@ body {font-family: Verdana,sans-serif;}
   from {opacity: .4}
   to {opacity: 1}
 }
-.inline-block {
-   display: inline-block;
-   padding: 10px;
-}
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
+  .prev, .next,.text {font-size: 11px}
 }
