@@ -54,33 +54,50 @@ Overriding bootstrap modal to introduce scroll bar
 }
 
 .header-image {
-    display: block;
+    /*display: block;*/
     width: 100%;
     text-align: center;
-    background: url('../images/background_red.jpg') no-repeat center center scroll;
+    /*opacity: 0.4;*/
+    /*filter: alpha(opacity=50);*/
+    /*background: url('../images/background.jpg') no-repeat center center;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    /*-webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    filter: blur(1px);*/
+}
+
+.header-parent{
+  position: absolute;
+  width: 100%;
 }
 
 .headline {
+    position: relative;
     padding: 120px 0;
+    text-align: center;
+    background-color: rgba(255,255,255,0.6);
+    min-height: 700px;
+    text-shadow: 2px 2px 5px #000;
 }
 
 .headline h1 {
     font-size: 130px;
     font-family: cursive;
     color: yellowgreen;
-    #background: #fff;
-    #background: rgba(255,255,255,0.9);
 }
 
 .headline h2 {
     font-size: 77px;
-    color: white;
-    #background: #fff;
-    #background: rgba(255,255,255,0.9);
+    color: currentColor;
+}
+
+.headline h3 {
+    color: currentColor;
 }
 
 .segment-divider {
@@ -252,3 +269,11 @@ footer {
 /*@media (max-width: @screen-xs-min) {
   .modal-xs { width: @modal-sm; }
 }*/
+#content ul {
+      text-align: left;
+      font-size: 150%;
+      list-style-type: none;
+      margin: 20px auto;
+      padding: 0px;
+      border: solid 1px #666666;
+    }
